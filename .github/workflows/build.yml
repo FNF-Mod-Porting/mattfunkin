@@ -63,7 +63,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install hscript
           haxelib install flixel-addons
-          haxelib install newgrounds
+          haxelib install newgrounds 1.4.0
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
           haxelib git polymod https://github.com/larsiusprime/polymod.git
