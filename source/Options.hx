@@ -60,7 +60,7 @@ class Option
 	private function updateDisplay():String { return throw "stub!"; }
 }
 
-class MobileOption extends Option
+class DFJKOption extends Option
 {
 	private var controls:Controls;
 

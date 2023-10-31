@@ -21,7 +21,7 @@ class OptionsMenu extends MusicBeatState
 
 	var options:Array<OptionCatagory> = [
 		new OptionCatagory("Gameplay", [
-			new MobileOption(Controls),
+			new DFJKOption(controls),
 			new FPSCapOption("Cap your FPS (Left for -10, Right for -10)"),
 			new ScrollSpeedOption("Change your scroll speed (Left for -0.1, right for +0.1. If its at 1, it will be chart dependent)"),
 			new OffsetMenu("Get a note offset based off of your inputs!"),
