@@ -44,6 +44,8 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
+	var portbytext:String = "@BlitzDotCS on twitter (and github)";
+
 	override function create()
 	{
 		#if desktop
@@ -103,10 +105,12 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 
+		/*
 		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, gameVer + " FNF - " + kadeEngineVer + " Kade Engine", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+		*/
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -117,6 +121,15 @@ class MainMenuState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
+
+		var portbytext2:FlxText = new FlxText(5, FlxG.height - 18, 0, "Ported by: " + portbytext, 12);
+		portbytext2.scrollFactor.set();
+		portbytext2.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(portbytext2);
+
+		#if mobileC
+		addVirtualPad(UP_DOWN, A_B);
+		#end
 
 		super.create();
 	}

@@ -7,6 +7,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
 
 class GameOverState extends FlxTransitionableState
 {
@@ -34,6 +35,14 @@ class GameOverState extends FlxTransitionableState
 		// bf.scrollFactor.set();
 		add(bf);
 		bf.playAnim('firstDeath');
+
+		#if mobileC
+		addVirtualPad(NONE, A_B);
+		var camcontrol = new FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_virtualpad.cameras = [camcontrol];	
+		#end	
 
 		FlxG.camera.follow(bf, LOCKON, 0.001);
 		/* 

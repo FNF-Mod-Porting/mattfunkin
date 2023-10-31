@@ -39,6 +39,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import ui.Mobilecontrols;
 
 #if desktop
 /*import Discord.DiscordClient;*/
@@ -123,9 +124,11 @@ class PlayState extends MusicBeatState
 	private var iconP2:HealthIcon;
 	private var camHUD:FlxCamera;
 	private var camGame:FlxCamera;
+	#if mobileC
+	var mcontrols:Mobilecontrols; 
+	#end
 
 	public static var offsetTesting:Bool = false;
-
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
@@ -870,6 +873,30 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+
+		#if mobileC
+			mcontrols = new Mobilecontrols();
+			switch (mcontrols.mode)
+			{
+				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
+				case HITBOX:
+					controls.setHitBox(mcontrols._hitbox);
+				default:
+			}
+			trackedinputs = controls.trackedinputs;
+			controls.trackedinputs = [];
+
+			var camcontrol = new FlxCamera();
+			FlxG.cameras.add(camcontrol);
+			camcontrol.bgColor.alpha = 0;
+			mcontrols.cameras = [camcontrol];
+
+			mcontrols.visible = false;
+
+			add(mcontrols);
+		#end
+
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1034,6 +1061,10 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		#if mobileC
+		mcontrols.visible = true;
+		#end
+
 		inCutscene = false;
 
 		generateStaticArrows(0);
@@ -1971,6 +2002,10 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		#if mobileC
+		mcontrols.visible = false;
+		#end
+
 		if (!loadRep)
 			rep.SaveReplay();
 
@@ -2443,7 +2478,7 @@ class PlayState extends MusicBeatState
 						possibleNotes.sort((a, b) -> Std.int(a.strumTime - b.strumTime));
 	
 						ignoreList.push(daNote.noteData);
-					}
+					} // h
 				});
 	
 				

@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin'" file="Funkin" packageName="com.ninjamuffin99.funkin" package="com.ninjamuffin99.funkin" main="Main" version="0.2.7.1" company="ninjamuffin99" />
+	<app title="Wii Funkin'" file="WiiFunkin" packageName="com.blitzdotcs.wiifunkin" package="com.blitzdotcs.wiifunkin" main="Main" version="0.2.7.1" company="BlitzDotCS" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -30,7 +30,7 @@
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
 	<define name="mobileC" if="mobile" />
 	<assets path="assets/shared/images/hitbox"/>
-	
+
 	<!--Switch-specific-->
 	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
 

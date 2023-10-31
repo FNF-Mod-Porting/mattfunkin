@@ -60,7 +60,7 @@ class Option
 	private function updateDisplay():String { return throw "stub!"; }
 }
 
-class DFJKOption extends Option
+class MobileOption extends Option
 {
 	private var controls:Controls;
 
@@ -72,12 +72,7 @@ class DFJKOption extends Option
 
 	public override function press():Bool
 	{
-		FlxG.save.data.dfjk = !FlxG.save.data.dfjk;
-		
-		if (FlxG.save.data.dfjk)
-			controls.setKeyboardScheme(KeyboardScheme.Solo, true);
-		else
-			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
+		FlxG.switchState(new CustomControlsState());
 
 		display = updateDisplay();
 		return true;
@@ -85,7 +80,7 @@ class DFJKOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return  FlxG.save.data.dfjk ? "DFJK" : "WASD";
+		return true;
 	}
 }
 
