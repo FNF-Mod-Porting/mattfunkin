@@ -14,6 +14,9 @@ class KadeEngineData
 		if (FlxG.save.data.mobile == null)
 			FlxG.save.data.mobile = false;
 			
+		if (FlxG.save.data.middleScroll == null)
+			FlxG.save.data.middleScroll = false;
+
 		if (FlxG.save.data.accuracyDisplay == null)
 			FlxG.save.data.accuracyDisplay = true;
 
