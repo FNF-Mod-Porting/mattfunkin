@@ -181,16 +181,11 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 
-		var upP = _pad.buttonUp.justPressed;
-		var downP = _pad.buttonDown.justPressed;
-		var LEFT_P = _pad.buttonLeft.justPressed;
-		var RIGHT_P = _pad.buttonRight.justPressed;
-
-		if (upP)
+		if (controls.UP_P)
 		{
 			changeSelection(-1);
 		}
-		if (downP)
+		if (controls.DOWN_P)
 		{
 			changeSelection(1);
 		}
