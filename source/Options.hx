@@ -73,13 +73,6 @@ class DFJKOption extends Option
 	public override function press():Bool
 	{
 		FlxG.switchState(new CustomControlsState());
-
-		display = updateDisplay();
-		return true;
-	}
-
-	private override function updateDisplay():String
-	{
 		return true;
 	}
 }
