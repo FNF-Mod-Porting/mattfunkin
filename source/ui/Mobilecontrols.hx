@@ -69,7 +69,7 @@ class Mobilecontrols extends FlxSpriteGroup
 			case 3: VIRTUALPAD_CUSTOM;
 			case 4:	HITBOX;
 
-			default: VIRTUALPAD_RIGHT;
+			default: HITBOX; // fuck you on 'bout niggaaaa
 
 		}
 	}

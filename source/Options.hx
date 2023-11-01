@@ -72,8 +72,17 @@ class DFJKOption extends Option
 
 	public override function press():Bool
 	{
+		FlxG.save.data.mobile = !FlxG.save.data.mobile;
+		
 		FlxG.switchState(new CustomControlsState());
+
+		display = updateDisplay();
 		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return  FlxG.save.data.mobile ? "MobileControls" : "MobileControls";
 	}
 }
 
@@ -334,6 +343,5 @@ class OffsetMenu extends Option
 		return "Time your offset";
 	}
 }
-
 
 
