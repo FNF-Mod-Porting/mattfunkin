@@ -902,7 +902,7 @@ class PlayState extends MusicBeatState
 			songPosBG.cameras = [camHUD];
 			songPosBar.cameras = [camHUD];
 		}
-		kadeEngineWatermark.cameras = [camHUD];
+		Watermark.cameras = [camHUD];
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 		// if (SONG.song == 'South')
