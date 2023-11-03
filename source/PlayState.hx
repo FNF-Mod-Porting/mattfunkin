@@ -2005,10 +2005,6 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-		#if mobileC
-		mcontrols.visible = false;
-		#end
-
 		if (!loadRep)
 			rep.SaveReplay();
 
