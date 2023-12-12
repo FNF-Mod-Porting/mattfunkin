@@ -54,6 +54,8 @@ jobs:
           haxelib install newgrounds 1.4.0
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
+          haxelib install format
+          haxelib install hxp
           haxelib git polymod https://github.com/larsiusprime/polymod.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install actuate 
