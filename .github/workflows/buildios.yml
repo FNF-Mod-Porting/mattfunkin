@@ -63,6 +63,10 @@ jobs:
           haxelib install hxCodec
           haxelib list
 
+      - name: Rebuild lime for ios
+        run: |
+          haxelib run lime rebuild lime ios
+
       - name: Build Game
         run: |
           haxelib run lime build ios
