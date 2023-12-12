@@ -43,6 +43,8 @@ jobs:
           haxelib setup "%HAXELIB_ROOT%"
           haxelib git lime https://github.com/FNF-Mod-Porting/lime
           haxelib install openfl
+          haxelib install format
+          haxelib install hxp
           haxelib --never install flixel 4.11.0
           haxelib run lime setup flixel
           haxelib run lime setup
@@ -54,8 +56,6 @@ jobs:
           haxelib install newgrounds 1.4.0
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
-          haxelib install format
-          haxelib install hxp
           haxelib git polymod https://github.com/larsiusprime/polymod.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install actuate 
