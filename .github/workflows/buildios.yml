@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir -p "%HAXELIB_ROOT%"
           haxelib setup "%HAXELIB_ROOT%"
-          haxelib install lime 7.9.0
+          haxelib git lime https://github.com/FNF-Mod-Porting/lime
           haxelib install openfl
           haxelib --never install flixel 4.11.0
           haxelib run lime setup flixel
