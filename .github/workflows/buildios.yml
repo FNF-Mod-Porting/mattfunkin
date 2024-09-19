@@ -61,18 +61,25 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install actuate 
           haxelib install hxCodec
+          haxelib run lime rebuild hxcpp
           haxelib list
 
       - name: Rebuild lime for ios
         run: |
-          haxelib run lime rebuild lime ios
+          haxelib run lime rebuild lime ios 
 
       - name: Build Game
         run: |
-          haxelib run lime build ios
-
-      - uses: actions/upload-artifact@v2
+          haxelib run lime build ios -nosign
+      - name: Make .ipa
+        run: |
+          cd export/*/ios/build/*-iphoneos
+          mkdir Payload
+          mv *.app Payload
+          zip -r MattFunkin.ipa Payload
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
         with:
-          name: iOS Build
-          path: export/release/ios
-          if-no-files-found: warn
+          name: iOSBuild
+          path: export/release/ios/build/Release-iphoneos/*.ipa
+          if-no-files-found: error
